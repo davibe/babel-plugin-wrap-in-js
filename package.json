@@ -1,0 +1,24 @@
+{
+  "name": "babel-plugin-wrap-in-js",
+  "version": "1.1.0",
+  "description": "Babel plugin to wrap file in an exported js string",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+  },
+  "keywords": [
+    "babel-plugin",
+    "js",
+    "wrap"
+  ],
+  "author": "Davide Bertola <dade@dadeb.it>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-plugin-transform-strict-mode": "^6.6.5",
+    "babel-template": "^6.7.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.7.2"
+  }
+}
