@@ -1,5 +1,5 @@
 var template = require('babel-template');
-var build = template('module.exports = "BODY"')
+var build = template(';module.exports = "BODY";')
 
 module.exports = function (babel) {
 	var t = babel.types;
