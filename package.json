@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-wrap-in-js",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Babel plugin to wrap file in an exported js string",
   "main": "index.js",
   "scripts": {
