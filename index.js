@@ -10,12 +10,16 @@ module.exports = function (babel) {
 				enter: function (path, state) {
 					const extensions = state && state.opts && state.opts.extensions
 					const reference = state && state.file && state.file.opts.filename
-					// console.log('reference', reference)
+					const filepath = reference.split('?')[0]
+					// console.log('filepath', filepath)
 
-					const run = reference.indexOf('.css') !== -1
-					// console.log('run', run)
+					let run = false
+					for (ext of extensions) {
+						run = run || filepath.match(ext)
+					}
+					// console.log('run', run, extensions)
 
-					if (!run) { return console.log('skipping', reference) }
+					if (!run) { return }
 					// console.log('already parsed', this._cssInJsAlreadyRan)
 
 					if (!this._cssInJsAlreadyRan) {
