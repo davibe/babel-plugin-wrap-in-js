@@ -4,7 +4,6 @@ var build = template(';(function () {\nBODY;\n})();')
 module.exports = function (babel) {
 	var t = babel.types;
 	return {
-		inherits: require("babel-plugin-transform-strict-mode"),
 		visitor: {
 			Program: {
 				enter: function (path, state) {
