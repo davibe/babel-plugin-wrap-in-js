@@ -1,5 +1,5 @@
 var template = require('babel-template');
-var build = template(';module.exports = "BODY";')
+var build = template(';(function () {\nBODY;\n})();')
 
 module.exports = function (babel) {
 	var t = babel.types;
@@ -10,20 +10,20 @@ module.exports = function (babel) {
 				enter: function (path, state) {
 					const extensions = state && state.opts && state.opts.extensions
 					const reference = state && state.file && state.file.opts.filename
-					console.log('reference', reference)
+					// console.log('reference', reference)
 
 					const run = reference.indexOf('.css') !== -1
-					console.log('run', run)
+					// console.log('run', run)
 
 					if (!run) { return console.log('skipping', reference) }
-					console.log('already parsed', this._cssInJsAlreadyRan)
+					// console.log('already parsed', this._cssInJsAlreadyRan)
 
 					if (!this._cssInJsAlreadyRan) {
 						this._cssInJsAlreadyRan = true;
 						var asd = build({
 							BODY: path.node.body
 						});
-						// asd[1].expression.callee.body.directives = path.node.directives;
+						asd[1].expression.callee.body.directives = path.node.directives;
 
 						path.replaceWith(
 							t.program(asd)
